@@ -1,0 +1,31 @@
+{
+  "name": "q1-extraction-v1",
+  "emails": "data/emails.json",
+  "assistant": {
+    "model": "qwen3:8b",
+    "digest": "500a1f067a9f",
+    "think": false,
+    "temperature": 0.7
+  },
+  "labeler": {
+    "model": "gemma3:12b",
+    "digest": "f4031aab637d",
+    "temperature": 0
+  },
+  "labeler_seed": 3000,
+  "arms": [
+    "failure",
+    "rule"
+  ],
+  "sessions": 20,
+  "session_seed": 1000,
+  "transfer": {
+    "heldout": 5,
+    "seed": 2000,
+    "min_gain": 2
+  },
+  "handlabel": {
+    "sample": 30,
+    "seed": 4000
+  }
+}
