@@ -4,7 +4,7 @@ import random
 from pathlib import Path
 
 from . import ollama, prompts
-from .store import append_jsonl, iter_notes, read_jsonl, write_json
+from .store import append_jsonl, iter_notes, read_json, read_jsonl, write_json
 
 TYPES = ("episodic", "semantic", "procedural")
 
@@ -35,15 +35,18 @@ def run_handlabel(config: dict, run: Path) -> None:
     cfg = config["handlabel"]
     sample = random.Random(cfg["seed"]).sample(notes, min(cfg["sample"], len(notes)))
     keys = {"e": "episodic", "s": "semantic", "p": "procedural"}
-    labels: dict[str, str] = {}
+    path = run / "hand_labels.json"
+    labels: dict[str, str] = read_json(path) or {}  # resume where a previous sitting stopped
     print(prompts.LABEL_TASK.split("Note:")[0])
     for i, note in enumerate(sample, 1):
+        if note["note_id"] in labels:
+            continue
         while True:
             answer = input(f"\n[{i}/{len(sample)}] {note['text']}\n  e / s / p > ").strip().lower()
             if answer in keys:
                 labels[note["note_id"]] = keys[answer]
+                write_json(path, labels)  # saved after every answer
                 break
-    write_json(run / "hand_labels.json", labels)
     print(f"Saved {len(labels)} labels.")
 
 
