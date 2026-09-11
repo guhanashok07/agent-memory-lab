@@ -65,3 +65,20 @@ Each entry: what was decided, the options considered, and why. Newest last.
 ## 010. Repository (2026-09-10)
 
 **Decided:** Public at github.com/guhanashok07/agent-memory-lab. `main` requires a pull request and blocks force-pushes, so it only changes through reviewed merges. MIT licence.
+
+## 011. The five hidden rules (2026-09-10)
+
+| # | Rule | How the user reveals it | Check |
+|---|---|---|---|
+| 1 | Under 120 words | Stated: "Too long." | word count |
+| 2 | Lead with the answer | Stated: "Get to the point." | the email's known answer word appears in the first sentence |
+| 3 | No exclamation marks | Shown: user's edit removes them | no `!` |
+| 4 | No filler openers ("I hope this finds you well") | Shown: user's edit deletes the line | banned-phrase list |
+| 5 | Sign off "Best, G" | Shown: user's edit replaces the sign-off | last line matches |
+
+## 012. Reflection prompts (2026-09-10)
+
+- **Failure-framed:** "Review this session. What went wrong, and what should you remember?"
+- **Rule-framed:** "Review this session. Write the rules you should follow in every future email to this user."
+
+The rule-framed prompt will produce notes that look rule-shaped by construction. The transfer test (003) is what shows whether they work.
