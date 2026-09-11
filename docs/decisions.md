@@ -114,3 +114,11 @@ The rule-framed prompt will produce notes that look rule-shaped by construction.
 | 5 | No contractions | Shown (edit) | 20% |
 
 Dropped: under 120 words, filler openers only, sign off "Best, G".
+
+## 016. Results reach the portfolio as a copied file (2026-09-11)
+
+**Decided:** A results file is copied into the portfolio repo through a pull request. The page imports it at build time.
+
+**Considered:** fetching a tagged release URL at build time; fetching in the browser.
+
+**Why:** The site then never depends on GitHub, at build or at view time, which is the independence constraint taken literally. The pull request doubles as a review gate: new numbers go live only after someone reads them. Cost: one small portfolio PR per results version.
