@@ -6,20 +6,27 @@ revealed by the user's own edit of the draft, with no explanation (decision 004)
 
 import re
 
-from .rules import FILLER
+from .rules import CONTRACTION, FILLER
 
 STATED = {
     "length": "Too long.",
     "answer_first": "Get to the point.",
 }
-SHOWN = ("no_exclamation", "no_filler_opener", "sign_off")
+SHOWN = ("no_exclamation", "no_filler", "no_contractions")
 
-# Short closing lines only, so "Thanks again for the update." is not mistaken for one.
-CLOSING = re.compile(
-    r"^(best|best regards|kind regards|warm regards|regards|thanks|thank you|many thanks"
-    r"|cheers|sincerely|all the best|talk soon)\b",
-    re.I,
-)
+_SPECIAL = {"won't": "will not", "can't": "cannot", "shan't": "shall not", "let's": "let us"}
+_SUFFIX = {"n't": " not", "'ll": " will", "'re": " are", "'m": " am", "'s": " is", "'ve": " have", "'d": " would"}
+
+
+def _expand(match: re.Match) -> str:
+    word = match.group(0).replace("’", "'")
+    lower = word.lower()
+    if lower in _SPECIAL:
+        out = _SPECIAL[lower]
+    else:
+        suffix = "n't" if lower.endswith("n't") else lower[lower.index("'"):]
+        out = word[: len(word) - len(suffix)] + _SUFFIX[suffix]
+    return out[0].upper() + out[1:] if word[0].isupper() else out
 
 
 def _strip_filler(text: str) -> str:
@@ -33,22 +40,12 @@ def _strip_filler(text: str) -> str:
     return "\n".join(out)
 
 
-def _strip_sign_off(text: str) -> str:
-    lines = text.rstrip().splitlines()
-    for i in range(len(lines) - 1, max(len(lines) - 5, -1), -1):
-        line = lines[i].strip()
-        if CLOSING.match(line) and len(line.split()) <= 4:
-            return "\n".join(lines[:i]).rstrip()
-    return text.rstrip()
-
-
 def edit(draft: str) -> str:
     """What the user actually sends: the draft with every shown rule fixed."""
     text = draft.replace("!", ".")
     text = _strip_filler(text)
-    text = _strip_sign_off(text)
-    text = re.sub(r"\n{3,}", "\n\n", text).strip()
-    return f"{text}\n\nBest,\nG"
+    text = CONTRACTION.sub(_expand, text)
+    return re.sub(r"\n{3,}", "\n\n", text).strip()
 
 
 def react(draft: str, result: dict[str, bool]) -> str:

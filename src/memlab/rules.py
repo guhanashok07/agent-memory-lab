@@ -1,36 +1,45 @@
 """The five hidden rules and their checks.
 
 Every check is plain string logic, so pass or fail never depends on a model's
-judgment. See docs/decisions.md, entry 011.
+judgment. See docs/decisions.md, entries 011 and 015.
 """
 
 import re
 
 RULES = {
-    "length": "Under 120 words",
+    "length": "Under 25 words",
     "answer_first": "Lead with the answer in the first sentence",
     "no_exclamation": "No exclamation marks",
-    "no_filler_opener": "No filler openers",
-    "sign_off": 'Sign off "Best, G"',
+    "no_filler": "No filler openers or closers",
+    "no_contractions": "No contractions",
 }
 
-MAX_WORDS = 120
+MAX_WORDS = 25
 
 FILLER = re.compile(
     r"hope (this|my) (e-?mail|message|note) finds you"
-    r"|hope you('| a)re (doing )?well"
+    r"|hope you('|’| a)re (doing )?well"
     r"|hope all is well"
-    r"|hope you('| a)re having"
+    r"|hope you('|’| a)re having"
     r"|hope you had"
-    r"|trust (this|you)",
+    r"|let me know if"
+    r"|feel free to"
+    r"|don('|’)?t hesitate"
+    r"|happy to help"
+    r"|if you (have|need) any",
+    re.I,
+)
+
+# Negations (don't, won't) plus pronoun contractions. Possessives like
+# "Friday's" are deliberately not matched.
+CONTRACTION = re.compile(
+    r"\b(\w+n['’]t|(i|you|we|they|he|she|it|that|there|what|who|here|let)['’](ll|re|m|s|ve|d))\b",
     re.I,
 )
 
 # A greeting line on its own: "Hi Priya," or "Hello!". A line that carries a full
 # sentence after the name is body text, so it cannot end in a full stop or question.
 GREETING = re.compile(r"^(hi|hello|hey|dear|good (morning|afternoon|evening))\b[^.?]{0,30}$", re.I)
-
-SIGN_OFF = re.compile(r"Best,\s*\n?\s*G\s*$")
 
 
 def word_count(text: str) -> int:
@@ -58,6 +67,6 @@ def check(draft: str, answers: list[str]) -> dict[str, bool]:
         "length": word_count(draft) < MAX_WORDS,
         "answer_first": contains_answer(first_sentence(draft), answers),
         "no_exclamation": "!" not in draft,
-        "no_filler_opener": not FILLER.search(draft),
-        "sign_off": bool(SIGN_OFF.search(draft.strip())),
+        "no_filler": not FILLER.search(draft),
+        "no_contractions": not CONTRACTION.search(draft),
     }

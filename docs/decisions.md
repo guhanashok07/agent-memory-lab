@@ -96,3 +96,21 @@ The rule-framed prompt will produce notes that look rule-shaped by construction.
 **Considered:** temperature 0.
 
 **Why:** Keeps natural variation while making the prompt the only difference between arms. Every run is reproducible from its config.
+
+## 015. The pilot changed the rules (2026-09-11)
+
+**What happened:** A no-memory pilot on the 20 session emails showed three of the original five rules passing 95 to 100% by default: qwen3:8b writes very short replies (median 14 words). A rule the assistant already follows cannot show learning, the same trap MEMPROBE reports.
+
+**First fix tried:** a warmer persona ("warm, friendly, complete emails, the way a helpful assistant would"), matching how product assistants default to padded emails. Kept, because it mirrors real products. It revived "no exclamation marks" (40%) but pushed "Best, G" to 80% and left the other two at 100%.
+
+**Decided:** Rules v2, chosen from candidates measured on the pilot drafts:
+
+| # | Rule | Revealed | No-memory pass rate |
+|---|---|---|---|
+| 1 | Under 25 words | Stated: "Too long." | 20% |
+| 2 | Lead with the answer | Stated: "Get to the point." | 70% |
+| 3 | No exclamation marks | Shown (edit) | 40% |
+| 4 | No filler openers or closers ("Let me know if you need anything") | Shown (edit) | 35% |
+| 5 | No contractions | Shown (edit) | 20% |
+
+Dropped: under 120 words, filler openers only, sign off "Best, G".
