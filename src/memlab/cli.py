@@ -14,12 +14,13 @@ from .export import run_export
 from .label import run_handlabel, run_labels
 from .session import run_pilot, run_sessions
 from .store import run_dir, write_json
-from .transfer import run_transfer
+from .transfer import run_control, run_transfer
 
 OUTPUTS = {
     "pilot": ["pilot.jsonl", "pilot_calls.jsonl"],
     "sessions": ["sessions.jsonl"],
     "transfer": ["transfer.jsonl", "transfer_baseline.json"],
+    "control": ["transfer_control.jsonl"],
     "label": ["labels.jsonl"],
 }
 
@@ -46,7 +47,7 @@ def _ready(run: Path, stage: str, force: bool) -> bool:
 
 def main(argv: list[str] | None = None) -> None:
     parser = argparse.ArgumentParser(prog="memlab")
-    parser.add_argument("stage", choices=["pilot", "sessions", "transfer", "label", "handlabel", "export", "all"])
+    parser.add_argument("stage", choices=["pilot", "sessions", "transfer", "control", "label", "handlabel", "export", "all"])
     parser.add_argument("--config", default="configs/q1-extraction-v1.json")
     parser.add_argument("--force", action="store_true")
     args = parser.parse_args(argv)
@@ -57,8 +58,8 @@ def main(argv: list[str] | None = None) -> None:
     run = run_dir(config)
     write_json(run / "config.json", config)
 
-    stages = ["sessions", "transfer", "label", "export"] if args.stage == "all" else [args.stage]
-    if any(s in ("pilot", "sessions", "transfer", "label") for s in stages):
+    stages = ["sessions", "transfer", "control", "label", "export"] if args.stage == "all" else [args.stage]
+    if any(s in ("pilot", "sessions", "transfer", "control", "label") for s in stages):
         ollama.verify_pins(config["assistant"], config["labeler"])
 
     for stage in stages:
@@ -73,6 +74,8 @@ def main(argv: list[str] | None = None) -> None:
             run_sessions(config, emails, run)
         elif stage == "transfer":
             run_transfer(config, emails, run)
+        elif stage == "control":
+            run_control(config, emails, run)
         elif stage == "label":
             run_labels(config, run)
         elif stage == "handlabel":

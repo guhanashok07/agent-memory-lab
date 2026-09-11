@@ -20,6 +20,7 @@ def run_export(config: dict, run: Path) -> Path:
     labels = {l["note_id"]: l["type"] for l in read_jsonl(run / "labels.jsonl")}
     baseline = read_json(run / "transfer_baseline.json") or {}
     hand = read_json(run / "hand_labels.json") or {}
+    control = read_jsonl(run / "transfer_control.jsonl")
 
     arms = {}
     for arm in config["arms"]:
@@ -55,6 +56,10 @@ def run_export(config: dict, run: Path) -> Path:
         "rules": RULES,
         "transfer_baseline": baseline,
         "arms": arms,
+        "noise_floor": {
+            "control_notes": len(control),
+            "transferred": sum(c["transfers"] for c in control),
+        },
         "labeler_agreement": agreement(labels, hand),
         "caveats": [
             "One local 8B model (qwen3:8b). A larger model may extract differently.",

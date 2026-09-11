@@ -19,7 +19,8 @@
   "transfer": {
     "heldout": 5,
     "seed": 2000,
-    "min_gain": 2
+    "min_gain": 2,
+    "control_notes": "data/control_notes.json"
   },
   "handlabel": {
     "sample": 30,

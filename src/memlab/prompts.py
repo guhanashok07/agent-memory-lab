@@ -83,14 +83,25 @@ OPS_SCHEMA = {
 # Examples are deliberately unrelated to the five hidden rules.
 LABEL_SYSTEM = "You classify notes that an AI email assistant wrote for its own memory."
 
-LABEL_TASK = """Classify the note as exactly one type.
+# v2 (decision 017). v1 labelled plain instructions like "Keep responses concise" as
+# episodic, so v2 defines each type by its grammatical form and adds a tie-break.
+LABEL_TASK = """Classify the note as exactly one type, by its form.
 
-episodic: records what happened in a particular session: a specific email, draft, person or event.
-  Example: "G said my reply to Priya was too formal."
-semantic: states a general fact about G or G's preferences, without telling the assistant what to do.
-  Example: "G prefers informal emails."
-procedural: tells the assistant how to act in future emails.
-  Example: "Use first names in greetings."
+procedural: an instruction or guideline for writing future emails. Imperatives ("Use first names",
+  "Be warm but brief") and "should" statements are procedural, even without "always", and even if
+  they mention a reason or a person.
+semantic: a general fact about G or G's preferences, stated as a fact rather than an instruction
+  ("G prefers informal emails").
+episodic: a description of one particular session: a specific draft, edit, email or person, usually
+  in the past tense ("My reply to Priya was too formal", "The final version removed a sentence").
+
+If a note mixes an instruction with a description, choose procedural.
+
+Examples:
+"Greet people by first name." -> procedural
+"You should mention deadlines early." -> procedural
+"G likes a relaxed tone." -> semantic
+"The draft to Omar used a formal greeting and G changed it." -> episodic
 
 Note: {note}"""
 

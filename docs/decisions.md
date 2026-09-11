@@ -122,3 +122,17 @@ Dropped: under 120 words, filler openers only, sign off "Best, G".
 **Considered:** fetching a tagged release URL at build time; fetching in the browser.
 
 **Why:** The site then never depends on GitHub, at build or at view time, which is the independence constraint taken literally. The pull request doubles as a review gate: new numbers go live only after someone reads them. Cost: one small portfolio PR per results version.
+
+## 017. Labeler prompt v2 (2026-09-11)
+
+**What happened:** The v1 labeler (gemma3:12b) labelled plain instructions such as "Keep responses concise to match the recipient's style" as episodic, and called 97 of 123 rule-prompt notes episodic.
+
+**Decided:** Define each type by its grammatical form, add contrast examples and a tie-break (instruction plus description counts as procedural), re-label all notes, and adopt v2 only if it agrees with Guhan's 30 blind hand labels at Cohen's kappa of 0.6 or higher. v1 labels stay in the git history.
+
+## 018. A noise floor for the transfer test (2026-09-11)
+
+**What happened:** A spot check found 2 of 10 irrelevant notes ("G uses a MacBook") passing the transfer test, both on the no-contractions rule. Any note in the prompt nudges the model's style.
+
+**Decided:** 30 irrelevant control notes run through the identical test. Their transfer rate is published as the noise floor, and every note-type rate is read against it.
+
+**Considered:** a stricter threshold or more held-out emails. Fewer false positives, but also fewer true ones, and a 45-minute rerun.
