@@ -39,3 +39,29 @@ Each entry: what was decided, the options considered, and why. Newest last.
 ## 006. Portfolio integration (2026-09-10)
 
 **Decided:** The page lives at guhanashok.com/work/agent-memory, following the site's /work/<slug> convention. The AI Evals Suite placeholder and its URL are removed outright. The portfolio reads a versioned JSON results file published from this repo.
+
+## 007. Models (2026-09-10)
+
+**Decided:** The assistant is `qwen3:8b` (Ollama digest `500a1f067a9f`). The note labeler is `gemma3:12b` (digest `f4031aab637d`), from a different model family so it is not grading its own writing.
+
+**Considered:** `qwen3:14b` (better writing, about 2x slower); `llama3.1:8b` (older, widely used).
+
+**Why:** Fast enough for about 40 sessions plus transfer tests on a laptop, and weak enough that extraction failures show up. Limitation for the writeup: a larger model may extract differently.
+
+## 008. Rules come from generic office style (2026-09-10)
+
+**Decided:** The user's five hidden rules are neutral office-email conventions anyone can check at a glance.
+
+**Considered:** Guhan's own voice rules; a mix.
+
+## 009. Memory policy: the assistant curates (2026-09-10)
+
+**Decided:** After each session the assistant proposes notes, then decides ADD / UPDATE / DELETE / NOOP against its existing memory (Mem0-style). Both layers are logged: the raw reflection output, and the curated memory after edits. Question 1 classifies the raw reflection output; the curated memory is reported alongside.
+
+**Considered:** keep everything and reread everything; keep the newest 10.
+
+**Why:** Closest to shipped products. Logging the raw layer separately keeps curation from muddying the extraction measurement.
+
+## 010. Repository (2026-09-10)
+
+**Decided:** Public at github.com/guhanashok07/agent-memory-lab. `main` requires a pull request and blocks force-pushes, so it only changes through reviewed merges. MIT licence.
