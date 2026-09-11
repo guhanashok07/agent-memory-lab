@@ -2,7 +2,7 @@
   "schema_version": 1,
   "experiment": "q1-extraction",
   "run": "q1-extraction-v1",
-  "generated_at": "2026-09-11T05:26:54+00:00",
+  "generated_at": "2026-09-11T15:49:47+00:00",
   "config": {
     "assistant": {
       "model": "qwen3:8b",
@@ -23,7 +23,8 @@
     "transfer": {
       "heldout": 5,
       "seed": 2000,
-      "min_gain": 2
+      "min_gain": 2,
+      "control_notes": "data/control_notes.json"
     }
   },
   "rules": {
@@ -49,16 +50,16 @@
       "raw_notes": 128,
       "by_type": {
         "episodic": {
-          "notes": 85,
-          "transferred": 27
+          "notes": 53,
+          "transferred": 15
         },
         "semantic": {
-          "notes": 25,
-          "transferred": 12
+          "notes": 7,
+          "transferred": 3
         },
         "procedural": {
-          "notes": 18,
-          "transferred": 10
+          "notes": 68,
+          "transferred": 31
         }
       },
       "rules_captured": [
@@ -100,16 +101,16 @@
       "raw_notes": 123,
       "by_type": {
         "episodic": {
-          "notes": 97,
-          "transferred": 47
+          "notes": 19,
+          "transferred": 9
         },
         "semantic": {
-          "notes": 15,
-          "transferred": 6
+          "notes": 0,
+          "transferred": 0
         },
         "procedural": {
-          "notes": 11,
-          "transferred": 3
+          "notes": 104,
+          "transferred": 47
         }
       },
       "rules_captured": [
@@ -146,6 +147,10 @@
         "rejected": 3
       }
     }
+  },
+  "noise_floor": {
+    "control_notes": 30,
+    "transferred": 3
   },
   "labeler_agreement": null,
   "caveats": [
