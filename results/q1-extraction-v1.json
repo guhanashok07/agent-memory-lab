@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "experiment": "q1-extraction",
+  "run": "q1-extraction-v1",
+  "generated_at": "2026-09-11T05:26:54+00:00",
+  "config": {
+    "assistant": {
+      "model": "qwen3:8b",
+      "digest": "500a1f067a9f",
+      "think": false,
+      "temperature": 0.7
+    },
+    "labeler": {
+      "model": "gemma3:12b",
+      "digest": "f4031aab637d",
+      "temperature": 0
+    },
+    "arms": [
+      "failure",
+      "rule"
+    ],
+    "sessions": 20,
+    "transfer": {
+      "heldout": 5,
+      "seed": 2000,
+      "min_gain": 2
+    }
+  },
+  "rules": {
+    "length": "Under 25 words",
+    "answer_first": "Lead with the answer in the first sentence",
+    "no_exclamation": "No exclamation marks",
+    "no_filler": "No filler openers or closers",
+    "no_contractions": "No contractions"
+  },
+  "transfer_baseline": {
+    "heldout": 5,
+    "passes": {
+      "length": 1,
+      "answer_first": 3,
+      "no_exclamation": 4,
+      "no_filler": 1,
+      "no_contractions": 1
+    }
+  },
+  "arms": {
+    "failure": {
+      "sessions": 20,
+      "raw_notes": 128,
+      "by_type": {
+        "episodic": {
+          "notes": 85,
+          "transferred": 27
+        },
+        "semantic": {
+          "notes": 25,
+          "transferred": 12
+        },
+        "procedural": {
+          "notes": 18,
+          "transferred": 10
+        }
+      },
+      "rules_captured": [
+        "answer_first",
+        "length",
+        "no_contractions",
+        "no_filler"
+      ],
+      "first_draft_rules_passed": [
+        3,
+        3,
+        5,
+        3,
+        3,
+        4,
+        4,
+        2,
+        2,
+        2,
+        1,
+        4,
+        5,
+        3,
+        1,
+        3,
+        3,
+        4,
+        4,
+        4
+      ],
+      "curated_memory_final": 20,
+      "curation_ops": {
+        "applied": 82,
+        "rejected": 1
+      }
+    },
+    "rule": {
+      "sessions": 20,
+      "raw_notes": 123,
+      "by_type": {
+        "episodic": {
+          "notes": 97,
+          "transferred": 47
+        },
+        "semantic": {
+          "notes": 15,
+          "transferred": 6
+        },
+        "procedural": {
+          "notes": 11,
+          "transferred": 3
+        }
+      },
+      "rules_captured": [
+        "answer_first",
+        "length",
+        "no_contractions",
+        "no_filler"
+      ],
+      "first_draft_rules_passed": [
+        3,
+        2,
+        1,
+        1,
+        3,
+        5,
+        5,
+        4,
+        4,
+        4,
+        2,
+        3,
+        5,
+        1,
+        1,
+        1,
+        2,
+        3,
+        4,
+        2
+      ],
+      "curated_memory_final": 2,
+      "curation_ops": {
+        "applied": 13,
+        "rejected": 3
+      }
+    }
+  },
+  "labeler_agreement": null,
+  "caveats": [
+    "One local 8B model (qwen3:8b). A larger model may extract differently.",
+    "About 20 sessions per arm, so results are directional, not conclusive.",
+    "The user is scripted, so conversations are less varied than real use."
+  ]
+}

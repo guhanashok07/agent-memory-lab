@@ -1,0 +1,293 @@
+failure session 1/20: 3/5 rules, 5 notes, memory 5
+failure session 2/20: 3/5 rules, 10 notes, memory 5
+failure session 3/20: 5/5 rules, 5 notes, memory 10
+failure session 4/20: 3/5 rules, 10 notes, memory 10
+failure session 5/20: 3/5 rules, 8 notes, memory 1
+failure session 6/20: 4/5 rules, 5 notes, memory 1
+failure session 7/20: 4/5 rules, 6 notes, memory 2
+failure session 8/20: 2/5 rules, 5 notes, memory 2
+failure session 9/20: 2/5 rules, 5 notes, memory 0
+failure session 10/20: 2/5 rules, 5 notes, memory 0
+failure session 11/20: 1/5 rules, 8 notes, memory 8
+failure session 12/20: 4/5 rules, 5 notes, memory 13
+failure session 13/20: 5/5 rules, 5 notes, memory 13
+failure session 14/20: 3/5 rules, 10 notes, memory 13
+failure session 15/20: 1/5 rules, 5 notes, memory 13
+failure session 16/20: 3/5 rules, 5 notes, memory 19
+failure session 17/20: 3/5 rules, 5 notes, memory 19
+failure session 18/20: 4/5 rules, 6 notes, memory 19
+failure session 19/20: 4/5 rules, 5 notes, memory 20
+failure session 20/20: 4/5 rules, 10 notes, memory 20
+rule session 1/20: 3/5 rules, 10 notes, memory 0
+rule session 2/20: 2/5 rules, 5 notes, memory 1
+rule session 3/20: 1/5 rules, 5 notes, memory 1
+rule session 4/20: 1/5 rules, 10 notes, memory 1
+rule session 5/20: 3/5 rules, 5 notes, memory 1
+rule session 6/20: 5/5 rules, 7 notes, memory 1
+rule session 7/20: 5/5 rules, 5 notes, memory 1
+rule session 8/20: 4/5 rules, 10 notes, memory 1
+rule session 9/20: 4/5 rules, 5 notes, memory 2
+rule session 10/20: 4/5 rules, 5 notes, memory 2
+rule session 11/20: 2/5 rules, 5 notes, memory 2
+rule session 12/20: 3/5 rules, 5 notes, memory 2
+rule session 13/20: 5/5 rules, 5 notes, memory 2
+rule session 14/20: 1/5 rules, 5 notes, memory 2
+rule session 15/20: 1/5 rules, 5 notes, memory 2
+rule session 16/20: 1/5 rules, 8 notes, memory 2
+rule session 17/20: 2/5 rules, 5 notes, memory 2
+rule session 18/20: 3/5 rules, 5 notes, memory 2
+rule session 19/20: 4/5 rules, 5 notes, memory 2
+rule session 20/20: 2/5 rules, 8 notes, memory 2
+baseline on 5 held-out emails: {'length': 1, 'answer_first': 3, 'no_exclamation': 4, 'no_filler': 1, 'no_contractions': 1}
+note 1/251: no transfer
+note 2/251: no transfer
+note 3/251: no transfer
+note 4/251: no transfer
+note 5/251: no transfer
+note 6/251: transfers length, no_contractions
+note 7/251: transfers length, no_filler, no_contractions
+note 8/251: transfers length
+note 9/251: transfers length, answer_first, no_filler, no_contractions
+note 10/251: transfers no_contractions
+note 11/251: no transfer
+note 12/251: transfers no_filler, no_contractions
+note 13/251: no transfer
+note 14/251: transfers length, answer_first, no_filler, no_contractions
+note 15/251: transfers length, no_contractions
+note 16/251: no transfer
+note 17/251: no transfer
+note 18/251: no transfer
+note 19/251: transfers no_filler
+note 20/251: no transfer
+note 21/251: no transfer
+note 22/251: no transfer
+note 23/251: no transfer
+note 24/251: transfers no_contractions
+note 25/251: no transfer
+note 26/251: no transfer
+note 27/251: no transfer
+note 28/251: no transfer
+note 29/251: no transfer
+note 30/251: transfers no_filler
+note 31/251: transfers length, answer_first, no_contractions
+note 32/251: no transfer
+note 33/251: no transfer
+note 34/251: no transfer
+note 35/251: no transfer
+note 36/251: no transfer
+note 37/251: no transfer
+note 38/251: no transfer
+note 39/251: no transfer
+note 40/251: transfers length, no_filler, no_contractions
+note 41/251: transfers no_filler
+note 42/251: no transfer
+note 43/251: no transfer
+note 44/251: no transfer
+note 45/251: transfers no_filler
+note 46/251: transfers no_contractions
+note 47/251: transfers no_filler
+note 48/251: no transfer
+note 49/251: no transfer
+note 50/251: transfers length, answer_first, no_filler, no_contractions
+note 51/251: transfers no_contractions
+note 52/251: no transfer
+note 53/251: transfers no_filler, no_contractions
+note 54/251: no transfer
+note 55/251: no transfer
+note 56/251: no transfer
+note 57/251: no transfer
+note 58/251: no transfer
+note 59/251: no transfer
+note 60/251: transfers length, no_contractions
+note 61/251: transfers length, no_filler, no_contractions
+note 62/251: no transfer
+note 63/251: transfers no_filler, no_contractions
+note 64/251: transfers length, no_filler, no_contractions
+note 65/251: transfers length, answer_first, no_filler, no_contractions
+note 66/251: transfers no_filler
+note 67/251: transfers no_filler
+note 68/251: no transfer
+note 69/251: no transfer
+note 70/251: transfers length, no_filler, no_contractions
+note 71/251: transfers length, answer_first, no_filler, no_contractions
+note 72/251: transfers length, answer_first, no_filler, no_contractions
+note 73/251: no transfer
+note 74/251: no transfer
+note 75/251: no transfer
+note 76/251: no transfer
+note 77/251: no transfer
+note 78/251: transfers no_filler
+note 79/251: no transfer
+note 80/251: no transfer
+note 81/251: transfers no_contractions
+note 82/251: no transfer
+note 83/251: no transfer
+note 84/251: no transfer
+note 85/251: transfers no_filler
+note 86/251: no transfer
+note 87/251: transfers answer_first, no_filler, no_contractions
+note 88/251: no transfer
+note 89/251: transfers length, no_filler
+note 90/251: no transfer
+note 91/251: no transfer
+note 92/251: no transfer
+note 93/251: no transfer
+note 94/251: transfers length
+note 95/251: no transfer
+note 96/251: no transfer
+note 97/251: no transfer
+note 98/251: transfers length, no_filler, no_contractions
+note 99/251: transfers length, no_contractions
+note 100/251: no transfer
+note 101/251: no transfer
+note 102/251: transfers no_contractions
+note 103/251: transfers length, no_filler, no_contractions
+note 104/251: no transfer
+note 105/251: transfers length, answer_first, no_filler, no_contractions
+note 106/251: transfers length, no_filler, no_contractions
+note 107/251: no transfer
+note 108/251: transfers length, answer_first, no_filler, no_contractions
+note 109/251: transfers length, no_filler, no_contractions
+note 110/251: transfers length, no_filler, no_contractions
+note 111/251: no transfer
+note 112/251: transfers length, no_filler
+note 113/251: no transfer
+note 114/251: no transfer
+note 115/251: no transfer
+note 116/251: transfers no_filler
+note 117/251: transfers no_contractions
+note 118/251: no transfer
+note 119/251: no transfer
+note 120/251: no transfer
+note 121/251: no transfer
+note 122/251: no transfer
+note 123/251: no transfer
+note 124/251: no transfer
+note 125/251: no transfer
+note 126/251: no transfer
+note 127/251: transfers length, answer_first, no_filler, no_contractions
+note 128/251: no transfer
+note 129/251: transfers no_contractions
+note 130/251: no transfer
+note 131/251: no transfer
+note 132/251: transfers no_filler
+note 133/251: no transfer
+note 134/251: no transfer
+note 135/251: no transfer
+note 136/251: no transfer
+note 137/251: transfers no_contractions
+note 138/251: no transfer
+note 139/251: transfers length, answer_first, no_filler, no_contractions
+note 140/251: transfers length, no_filler, no_contractions
+note 141/251: no transfer
+note 142/251: no transfer
+note 143/251: transfers length, no_filler, no_contractions
+note 144/251: transfers length, no_filler, no_contractions
+note 145/251: no transfer
+note 146/251: transfers no_contractions
+note 147/251: transfers length
+note 148/251: no transfer
+note 149/251: transfers length, answer_first, no_filler, no_contractions
+note 150/251: no transfer
+note 151/251: no transfer
+note 152/251: no transfer
+note 153/251: no transfer
+note 154/251: transfers no_filler, no_contractions
+note 155/251: transfers no_contractions
+note 156/251: no transfer
+note 157/251: no transfer
+note 158/251: transfers no_filler
+note 159/251: transfers length, answer_first, no_filler, no_contractions
+note 160/251: transfers length, no_filler, no_contractions
+note 161/251: no transfer
+note 162/251: transfers length, no_filler, no_contractions
+note 163/251: no transfer
+note 164/251: transfers no_contractions
+note 165/251: no transfer
+note 166/251: no transfer
+note 167/251: no transfer
+note 168/251: no transfer
+note 169/251: no transfer
+note 170/251: transfers length, no_filler, no_contractions
+note 171/251: transfers length, answer_first, no_filler, no_contractions
+note 172/251: no transfer
+note 173/251: transfers length, answer_first, no_filler, no_contractions
+note 174/251: no transfer
+note 175/251: no transfer
+note 176/251: transfers no_filler, no_contractions
+note 177/251: transfers no_filler
+note 178/251: no transfer
+note 179/251: no transfer
+note 180/251: no transfer
+note 181/251: transfers no_contractions
+note 182/251: transfers no_filler
+note 183/251: no transfer
+note 184/251: transfers no_contractions
+note 185/251: no transfer
+note 186/251: no transfer
+note 187/251: no transfer
+note 188/251: no transfer
+note 189/251: no transfer
+note 190/251: transfers length, no_contractions
+note 191/251: transfers length, no_filler, no_contractions
+note 192/251: transfers length, no_filler
+note 193/251: transfers length, no_filler, no_contractions
+note 194/251: transfers no_contractions
+note 195/251: no transfer
+note 196/251: transfers length, answer_first, no_filler, no_contractions
+note 197/251: no transfer
+note 198/251: no transfer
+note 199/251: transfers no_filler
+note 200/251: transfers no_filler, no_contractions
+note 201/251: transfers no_contractions
+note 202/251: no transfer
+note 203/251: no transfer
+note 204/251: transfers no_filler, no_contractions
+note 205/251: no transfer
+note 206/251: transfers no_filler
+note 207/251: no transfer
+note 208/251: no transfer
+note 209/251: no transfer
+note 210/251: no transfer
+note 211/251: transfers no_contractions
+note 212/251: transfers no_filler
+note 213/251: transfers no_filler, no_contractions
+note 214/251: no transfer
+note 215/251: transfers no_filler, no_contractions
+note 216/251: transfers no_contractions
+note 217/251: no transfer
+note 218/251: no transfer
+note 219/251: transfers no_filler, no_contractions
+note 220/251: no transfer
+note 221/251: transfers no_contractions
+note 222/251: transfers no_filler
+note 223/251: no transfer
+note 224/251: no transfer
+note 225/251: no transfer
+note 226/251: no transfer
+note 227/251: transfers no_filler, no_contractions
+note 228/251: no transfer
+note 229/251: transfers no_contractions
+note 230/251: no transfer
+note 231/251: no transfer
+note 232/251: transfers no_filler
+note 233/251: no transfer
+note 234/251: transfers no_filler, no_contractions
+note 235/251: no transfer
+note 236/251: transfers no_filler, no_contractions
+note 237/251: transfers no_contractions
+note 238/251: no transfer
+note 239/251: transfers length, no_contractions
+note 240/251: no transfer
+note 241/251: no transfer
+note 242/251: no transfer
+note 243/251: transfers no_filler, no_contractions
+note 244/251: transfers no_filler, no_contractions
+note 245/251: transfers length, answer_first
+note 246/251: no transfer
+note 247/251: no transfer
+note 248/251: transfers length, answer_first, no_filler, no_contractions
+note 249/251: transfers no_filler
+note 250/251: no transfer
+note 251/251: no transfer
+Wrote results/q1-extraction-v1.json
