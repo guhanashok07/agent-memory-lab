@@ -1,0 +1,14 @@
+# Secrets and local config. Copy .env.example to .env; .env never gets committed.
+.env
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Node (if a frontend is added)
+node_modules/
+
+# OS
+.DS_Store
