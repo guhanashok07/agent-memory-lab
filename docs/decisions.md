@@ -82,3 +82,17 @@ Each entry: what was decided, the options considered, and why. Newest last.
 - **Rule-framed:** "Review this session. Write the rules you should follow in every future email to this user."
 
 The rule-framed prompt will produce notes that look rule-shaped by construction. The transfer test (003) is what shows whether they work.
+
+## 013. Thinking mode off (2026-09-10)
+
+**Decided:** Qwen3 runs with thinking disabled.
+
+**Why:** Like a chat product's fast mode, and about 3x faster. The reflection step is then the only place the model reasons about a session, which is the thing being measured. Hidden reasoning would blur what the notes contain.
+
+## 014. Paired seeds at temperature 0.7 (2026-09-10)
+
+**Decided:** Temperature 0.7 with a fixed seed per session. Both prompt arms see the same emails, in the same order, with the same seeds.
+
+**Considered:** temperature 0.
+
+**Why:** Keeps natural variation while making the prompt the only difference between arms. Every run is reproducible from its config.
