@@ -144,3 +144,11 @@ Dropped: under 120 words, filler openers only, sign off "Best, G".
 **Both disagreements ran the same way:** gemma called an imperative episodic ("Don't add extra context unless it's relevant") where Guhan called it procedural. So the published procedural share is, if anything, an undercount.
 
 **Caveat for the writeup:** n is 10, not 30. Kappa on 10 items is a weak estimate.
+
+## 020. The page leads with the decision (2026-09-12)
+
+**Decided:** On guhanashok.com/work/agent-memory the order is context, the question, what I found, what I would ship, then how the test works. The method is compressed to five lines, with the detail in this repo.
+
+**Why:** The first draft had five sections of apparatus and one of meaning, which reads as a research writeup with a product introduction. The finding a team can act on (ask the reflection prompt for rules; gate notes on a transfer test) is the point of the project.
+
+**Also decided:** the page states that an earlier labeler put the description share at 66% where the validated one says 41%. Classification choice deciding the headline is itself a finding, and hiding it would be the kind of selective reporting this project exists to criticise.
