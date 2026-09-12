@@ -136,3 +136,11 @@ Dropped: under 120 words, filler openers only, sign off "Best, G".
 **Decided:** 30 irrelevant control notes run through the identical test. Their transfer rate is published as the noise floor, and every note-type rate is read against it.
 
 **Considered:** a stricter threshold or more held-out emails. Fewer false positives, but also fewer true ones, and a 45-minute rerun.
+
+## 019. Labeler v2 validated on 10 blind human labels (2026-09-12)
+
+**What happened:** Guhan labelled 10 notes blind, before seeing any model label. Agreement with labeler v2 was 8 of 10, Cohen's kappa 0.64, clearing the 0.6 bar set in 017.
+
+**Both disagreements ran the same way:** gemma called an imperative episodic ("Don't add extra context unless it's relevant") where Guhan called it procedural. So the published procedural share is, if anything, an undercount.
+
+**Caveat for the writeup:** n is 10, not 30. Kappa on 10 items is a weak estimate.

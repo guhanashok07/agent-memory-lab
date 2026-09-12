@@ -2,7 +2,7 @@
   "schema_version": 1,
   "experiment": "q1-extraction",
   "run": "q1-extraction-v1",
-  "generated_at": "2026-09-11T15:49:47+00:00",
+  "generated_at": "2026-09-12T12:47:02+00:00",
   "config": {
     "assistant": {
       "model": "qwen3:8b",
@@ -152,7 +152,11 @@
     "control_notes": 30,
     "transferred": 3
   },
-  "labeler_agreement": null,
+  "labeler_agreement": {
+    "n": 10,
+    "percent": 80.0,
+    "kappa": 0.64
+  },
   "caveats": [
     "One local 8B model (qwen3:8b). A larger model may extract differently.",
     "About 20 sessions per arm, so results are directional, not conclusive.",
