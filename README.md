@@ -12,6 +12,14 @@ A controlled test of agent memory. When an AI assistant reflects on a session an
 
 ## Running it
 
-Setup instructions (three commands, including Ollama) will land here with the first working harness.
+Needs [Ollama](https://ollama.com/download) (running) and [uv](https://docs.astral.sh/uv/).
+
+```bash
+ollama pull qwen3:8b && ollama pull gemma3:12b
+uv sync
+uv run memlab all
+```
+
+That writes raw logs to `runs/<config name>/` and the published results to `results/<config name>.json`. Stages can also run one at a time: `pilot`, `sessions`, `transfer`, `label`, `handlabel` (interactive), `export`. The harness refuses to run if your local model digests differ from the ones pinned in `configs/`.
 
 Everything runs locally through [Ollama](https://ollama.com). There is no API spend and there are no secrets.

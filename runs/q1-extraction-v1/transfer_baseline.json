@@ -1,0 +1,10 @@
+{
+  "heldout": 5,
+  "passes": {
+    "length": 1,
+    "answer_first": 3,
+    "no_exclamation": 4,
+    "no_filler": 1,
+    "no_contractions": 1
+  }
+}

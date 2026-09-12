@@ -96,3 +96,43 @@ The rule-framed prompt will produce notes that look rule-shaped by construction.
 **Considered:** temperature 0.
 
 **Why:** Keeps natural variation while making the prompt the only difference between arms. Every run is reproducible from its config.
+
+## 015. The pilot changed the rules (2026-09-11)
+
+**What happened:** A no-memory pilot on the 20 session emails showed three of the original five rules passing 95 to 100% by default: qwen3:8b writes very short replies (median 14 words). A rule the assistant already follows cannot show learning, the same trap MEMPROBE reports.
+
+**First fix tried:** a warmer persona ("warm, friendly, complete emails, the way a helpful assistant would"), matching how product assistants default to padded emails. Kept, because it mirrors real products. It revived "no exclamation marks" (40%) but pushed "Best, G" to 80% and left the other two at 100%.
+
+**Decided:** Rules v2, chosen from candidates measured on the pilot drafts:
+
+| # | Rule | Revealed | No-memory pass rate |
+|---|---|---|---|
+| 1 | Under 25 words | Stated: "Too long." | 20% |
+| 2 | Lead with the answer | Stated: "Get to the point." | 70% |
+| 3 | No exclamation marks | Shown (edit) | 40% |
+| 4 | No filler openers or closers ("Let me know if you need anything") | Shown (edit) | 35% |
+| 5 | No contractions | Shown (edit) | 20% |
+
+Dropped: under 120 words, filler openers only, sign off "Best, G".
+
+## 016. Results reach the portfolio as a copied file (2026-09-11)
+
+**Decided:** A results file is copied into the portfolio repo through a pull request. The page imports it at build time.
+
+**Considered:** fetching a tagged release URL at build time; fetching in the browser.
+
+**Why:** The site then never depends on GitHub, at build or at view time, which is the independence constraint taken literally. The pull request doubles as a review gate: new numbers go live only after someone reads them. Cost: one small portfolio PR per results version.
+
+## 017. Labeler prompt v2 (2026-09-11)
+
+**What happened:** The v1 labeler (gemma3:12b) labelled plain instructions such as "Keep responses concise to match the recipient's style" as episodic, and called 97 of 123 rule-prompt notes episodic.
+
+**Decided:** Define each type by its grammatical form, add contrast examples and a tie-break (instruction plus description counts as procedural), re-label all notes, and adopt v2 only if it agrees with Guhan's 30 blind hand labels at Cohen's kappa of 0.6 or higher. v1 labels stay in the git history.
+
+## 018. A noise floor for the transfer test (2026-09-11)
+
+**What happened:** A spot check found 2 of 10 irrelevant notes ("G uses a MacBook") passing the transfer test, both on the no-contractions rule. Any note in the prompt nudges the model's style.
+
+**Decided:** 30 irrelevant control notes run through the identical test. Their transfer rate is published as the noise floor, and every note-type rate is read against it.
+
+**Considered:** a stricter threshold or more held-out emails. Fewer false positives, but also fewer true ones, and a 45-minute rerun.

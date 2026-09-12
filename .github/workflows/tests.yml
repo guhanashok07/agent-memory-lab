@@ -1,0 +1,11 @@
+# Runs the grader and curation tests on every push and pull request.
+# No model is needed: these tests cover the deterministic parts of the harness.
+name: tests
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv run pytest -q
